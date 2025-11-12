@@ -1,7 +1,14 @@
+"use client"
 
-function PaymentForm() {
+import { useAuth } from "@/app/hooks/useAuth"
+import { addGoingEvent } from "@/app/actions"
+ function PaymentForm({eventId}) {
+  const {auth}=useAuth()
+
+
+
   return (
-        <htmlForm>
+      <form action={() => addGoingEvent(eventId, auth)}>
           <div className="my-4 space-y-2">
             <label htmlFor="name" className="block">Name</label>
             <input type="text" id="name" className="w-full bg-[#27292F] border border-[#CCCCCC]/20 py-1 px-2 rounded-md" />
@@ -30,7 +37,7 @@ function PaymentForm() {
           </div>
 
           <button type="submit" className="w-full my-8 bg-indigo-600 hover:bg-indigo-800 py-2 rounded-md">Pay Now</button>
-        </htmlForm>  )
+        </form>  )
 }
 
 export default PaymentForm

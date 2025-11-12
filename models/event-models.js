@@ -26,10 +26,7 @@ const schema=new Schema({
         required:false,
         type:Array
     },
-        swgs:{
-        required:false,
-        type:Array
-    },
+    swags: { type: Array },   // ✅ FIXED NAME
 
 
 
@@ -38,4 +35,4 @@ const schema=new Schema({
 
 })
 
-export const eventModel=mongoose.models.events ?? mongoose.model("events",schema)
+export const eventModel=mongoose.models.Event || mongoose.model("Event",schema)
